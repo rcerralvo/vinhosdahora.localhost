@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <nav> 
+        <produtos>
+            <label>Produtos</label>
+            <controller>produtos</controller>
+            <action>index</action>
+            <module>admin</module> 
+        </produtos>
+        <sair>
+            <label>Sair</label>
+            <controller>auth</controller>
+            <action>logout</action>
+            <module>admin</module>
+        </sair>
+    </nav>
+</config>
