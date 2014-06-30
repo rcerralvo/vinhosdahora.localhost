@@ -11,9 +11,6 @@ class Admin_AuthController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
-        $this->_flashMessenger = $this->_helper->getHelper('FlashMessenger');
-        $this->view->messages = $this->_flashMessenger->getMessages();
-        
         $form = new VH_Forms_Login();
         $this->view->form = $form;
         
@@ -43,7 +40,7 @@ class Admin_AuthController extends Zend_Controller_Action
                 }
                 catch (Exception $e)
                 {
-                    $this->_helper->FlashMessenger($e->getMessage());
+                    $this->view->messages = $e->getMessage();
                 }
             }
             else
