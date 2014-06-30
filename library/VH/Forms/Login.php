@@ -2,10 +2,10 @@
 
 class VH_Forms_Login extends Zend_Form {
     
-    public function _init() {
+    public function init() {
         
         # Método POST
-        $this->setMethod("POST");
+        $this->setMethod("post");
         
         # Campo Login
         $login = $this->createElement("text", "login", array("label" => "Login:", "class" => "input-g"))

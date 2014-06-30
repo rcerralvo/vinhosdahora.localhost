@@ -11,6 +11,8 @@ class Admin_AuthController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $form = new VH_Forms_Login();
+        $this->view->form = $form;
     }
 
 
