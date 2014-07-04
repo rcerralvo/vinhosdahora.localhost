@@ -19,6 +19,19 @@ class Admin_TiposController extends Zend_Controller_Action
     public function addAction()
     {
         // action body
+        $form = new VH_Forms_Tipos();
+        $this->view->form = $form;
+        
+        if ($this->_request->isPost()) 
+        {
+            $data = $this->_request->getPost();
+            if ($form->isValid($data))
+            {
+                $tipo = new Tipo($data);
+                $tipo->save();
+                $this->_redirect("admin/tipos");
+            }
+        }
     }
 
 
