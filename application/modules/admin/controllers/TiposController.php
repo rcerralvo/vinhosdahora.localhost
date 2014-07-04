@@ -16,7 +16,7 @@ class Admin_TiposController extends Zend_Controller_Action
         
         $paginator = Zend_Paginator::factory($data);
         $paginator->setCurrentPageNumber((int) $this->_getParam("page", 1));
-        $paginator->setItemCountPerPage(1);
+        $paginator->setItemCountPerPage(10);
         
         $this->view->tipos = $paginator;
     }
