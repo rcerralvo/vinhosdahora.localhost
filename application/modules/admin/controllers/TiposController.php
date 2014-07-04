@@ -13,7 +13,12 @@ class Admin_TiposController extends Zend_Controller_Action
         // action body
         $tipos = new Tipo();
         $data = $tipos->fetchAll();
-        $this->view->tipos = $data;
+        
+        $paginator = Zend_Paginator::factory($data);
+        $paginator->setCurrentPageNumber((int) $this->_getParam("page", 1));
+        $paginator->setItemCountPerPage(1);
+        
+        $this->view->tipos = $paginator;
     }
 
     public function addAction()
