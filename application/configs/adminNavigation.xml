@@ -32,6 +32,14 @@
             <controller>tipos</controller>
             <action>index</action>
             <module>admin</module>
+            <pages>
+                <add>
+                    <label>Novo</label>
+                    <controller>tipos</controller>
+                    <action>add</action>
+                    <module>admin</module>
+                </add>
+            </pages>
         </tipos>
         <sair>
             <label>Sair</label>
