@@ -56,8 +56,16 @@ class Admin_TiposController extends Zend_Controller_Action
             }
         }
     }
-
-
+    
+    public function deleteAction()
+    {
+        $tipo = new Tipo();
+        if ((int) $this->_getParam("id") > 0)
+            $tipo->delete ($this->_getParam ("id"));
+        
+        $this->_helper->viewRenderer->setNoRender();
+        $this->_redirect("admin/tipos");
+    }
 }
 
 
