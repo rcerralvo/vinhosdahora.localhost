@@ -21,6 +21,7 @@
           <dbTableFile dbTableName="Pais"/>
         </dbTableDirectory>
         <modelFile modelName="Tipo"/>
+        <modelFile modelName="TipoMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
