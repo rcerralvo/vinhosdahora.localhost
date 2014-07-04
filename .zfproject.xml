@@ -41,6 +41,7 @@
             </controllerFile>
             <controllerFile controllerName="Tipos">
               <actionMethod actionName="index"/>
+              <actionMethod actionName="add"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
@@ -66,6 +67,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Tipos">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Tipos">
+                <viewScriptFile forActionName="add"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

@@ -16,6 +16,13 @@ class Admin_TiposController extends Zend_Controller_Action
         $this->view->tipos = $data;
     }
 
+    public function addAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
