@@ -37,6 +37,24 @@ class Admin_TiposController extends Zend_Controller_Action
     public function editAction()
     {
         // action body
+        $tipo = new Tipo();
+        $rtipo = $tipo->getAsArray((int) $this->_getParam("id"));
+       
+        $form = new VH_Forms_Tipos();
+        $form->addElement(new Zend_Form_Element_Hidden("id", $rtipo["id"]));
+        $form->populate($rtipo);
+        $this->view->form = $form;
+        
+        if ($this->_request->isPost())
+        {
+            $data = $this->_request->getPost();
+            if ($form->isValid($data))
+            {
+                $tipo = new Tipo($data);
+                $tipo->save();
+                $this->_redirect("admin/tipos");
+            }
+        }
     }
 
 

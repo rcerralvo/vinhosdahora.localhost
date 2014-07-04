@@ -21,5 +21,9 @@ class Tipo extends VH_Db_DomainObjectAbstract
     public function setDescricao($Descricao) {
         $this->Descricao = $Descricao;
     }
+    
+    public function getNomeTipos() {
+        return $this->getMapper()->getNomeTipos();
+    }
 }
 
