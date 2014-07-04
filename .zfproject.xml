@@ -20,6 +20,7 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Pais"/>
         </dbTableDirectory>
+        <modelFile modelName="Tipo"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
