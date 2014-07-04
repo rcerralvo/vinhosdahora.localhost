@@ -34,8 +34,15 @@ class Admin_TiposController extends Zend_Controller_Action
         }
     }
 
+    public function editAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 
