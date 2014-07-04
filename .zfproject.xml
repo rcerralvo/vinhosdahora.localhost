@@ -19,6 +19,7 @@
         <modelFile modelName="PaisMapper"/>
         <dbTableDirectory>
           <dbTableFile dbTableName="Pais"/>
+          <dbTableFile dbTableName="Tipo"/>
         </dbTableDirectory>
         <modelFile modelName="Tipo"/>
         <modelFile modelName="TipoMapper"/>
