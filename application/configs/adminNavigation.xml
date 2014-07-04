@@ -27,6 +27,12 @@
                 </edit>
             </pages> 
         </paises>
+        <tipos>
+            <label>Tipos</label>
+            <controller>tipos</controller>
+            <action>index</action>
+            <module>admin</module>
+        </tipos>
         <sair>
             <label>Sair</label>
             <controller>auth</controller>
