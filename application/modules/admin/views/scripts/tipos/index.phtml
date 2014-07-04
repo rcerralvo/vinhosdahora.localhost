@@ -1,2 +1,28 @@
-<!-- Link Novo Tipo de Vinho -->
+<!-- Link Novo Tipo -->
 <p><a href="<?php echo $this->url(array("controller" => "tipos", "action" => "add", "module" => "admin"), null, 1); ?>">Novo</a></p>
+
+<!-- Tabela Listagem Tipos -->
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th width="8%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->tipos as $tipo): ?>
+        <tr>
+            <td><?php echo $this->escape($tipo->getNome()); ?></td>
+            <td><?php echo $this->escape($tipo->getDescricao()); ?></td>
+            <td>
+                <a href="<?php echo $this->url(array("controller" => "tipos", "action" => "edit", "module" => "admin", "id" => $tipo->getId()), null, 1) ?>">
+                    <img src="<?php echo $this->baseUrl("/images/icons/edit.png"); ?>" alt="Editar"></a>
+                &nbsp;
+                <a href="<?php echo $this->url(array("controller" => "tipos", "action" => "delete", "module" => "admin", "id" => $tipo->getId()), null, 1) ?>">
+                    <img src="<?php echo $this->baseUrl("/images/icons/delete.png"); ?>" alt="Deletar"></a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>

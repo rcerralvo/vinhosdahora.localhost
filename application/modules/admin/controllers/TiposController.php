@@ -11,6 +11,9 @@ class Admin_TiposController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $tipos = new Tipo();
+        $data = $tipos->fetchAll();
+        $this->view->tipos = $data;
     }
 
 
