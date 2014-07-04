@@ -1,0 +1,28 @@
+<p><a href="<?php echo $this->url(array("controller" => "paises", "action" => "add", "module" => "admin"), null, 1); ?>">Novo</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th width="8%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->paises as $pais): ?>
+        <tr>
+            <td><?php echo $this->escape($pais->getNome()); ?></td>
+            <td><?php echo $this->escape($pais->getDescricao()); ?></td>
+            <td>
+                <a href="<?php echo $this->url(array("controller" => "paises", "action" => "edit", "module" => "admin", "id" => $pais->getId()), null, 1) ?>">
+                    <img src="<?php echo $this->baseUrl("/images/icons/edit.png"); ?>" alt="Editar"></a>
+                &nbsp;
+                <a href="<?php echo $this->url(array("controller" => "paises", "action" => "delete", "module" => "admin", "id" => $pais->getId()), null, 1) ?>">
+                    <img src="<?php echo $this->baseUrl("/images/icons/delete.png"); ?>" alt="Deletar"></a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<?php echo $this->paginationControl($this->paises, "Sliding", "paginator.phtml"); ?>

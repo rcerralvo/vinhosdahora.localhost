@@ -14,7 +14,13 @@
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory enabled="false"/>
-      <modelsDirectory/>
+      <modelsDirectory>
+        <modelFile modelName="Pais"/>
+        <modelFile modelName="PaisMapper"/>
+        <dbTableDirectory>
+          <dbTableFile dbTableName="Pais"/>
+        </dbTableDirectory>
+      </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
           <configsDirectory enabled="false"/>
@@ -24,6 +30,11 @@
             </controllerFile>
             <controllerFile controllerName="Auth">
               <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Paises">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="add"/>
+              <actionMethod actionName="edit"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
@@ -37,6 +48,15 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Auth">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Paises">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Paises">
+                <viewScriptFile forActionName="add"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Paises">
+                <viewScriptFile forActionName="edit"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

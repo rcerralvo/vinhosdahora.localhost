@@ -7,6 +7,26 @@
             <action>index</action>
             <module>admin</module> 
         </produtos>
+        <paises>
+            <label>Países</label>
+            <controller>paises</controller>
+            <action>index</action>
+            <module>admin</module>
+            <pages>
+                <add>
+                    <label>Novo</label>
+                    <controller>paises</controller>
+                    <action>add</action>
+                    <module>admin</module>
+                </add>
+                <edit>
+                    <label>Editar</label>
+                    <controller>paises</controller>
+                    <action>edit</action>
+                    <module>admin</module>
+                </edit>
+            </pages> 
+        </paises>
         <sair>
             <label>Sair</label>
             <controller>auth</controller>
