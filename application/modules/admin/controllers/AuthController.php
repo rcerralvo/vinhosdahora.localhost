@@ -50,7 +50,16 @@ class Admin_AuthController extends Zend_Controller_Action
         }
     }
     
-    private function getAuthAdapter()
+    public function logoutAction() {
+        $this->_helper->viewRenderer->setNoRender();
+        $this->_helper->layout->disableLayout();
+        $auth = Zend_Auth::getInstance();
+        $auth->setStorage(new Zend_Auth_Storage_Session("admin"));
+        $auth->clearIdentity();
+        $this->_redirect("admin/auth");
+    }
+
+        private function getAuthAdapter()
     {
         $bootstrap = $this->getInvokeArg("bootstrap");
         $resource = $bootstrap->getPluginResource("db");
@@ -61,7 +70,7 @@ class Admin_AuthController extends Zend_Controller_Action
         $authAdapter->setTableName("funcionario")
                 ->setIdentityColumn("login")
                 ->setCredentialColumn("senha")
-                ->setCredentialTreatment('role <> "" and role = "Administrador"');
+                ->setCredentialTreatment('role <> "" and role == "dadad"');
         return $authAdapter;
     }
 }
