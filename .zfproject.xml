@@ -20,9 +20,12 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Pais"/>
           <dbTableFile dbTableName="Tipo"/>
+          <dbTableFile dbTableName="Produto"/>
         </dbTableDirectory>
         <modelFile modelName="Tipo"/>
         <modelFile modelName="TipoMapper"/>
+        <modelFile modelName="Produto"/>
+        <modelFile modelName="ProdutoMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -43,6 +46,9 @@
               <actionMethod actionName="index"/>
               <actionMethod actionName="add"/>
               <actionMethod actionName="edit"/>
+            </controllerFile>
+            <controllerFile controllerName="Produtos">
+              <actionMethod actionName="index"/>
             </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
@@ -74,6 +80,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Tipos">
                 <viewScriptFile forActionName="edit"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Produtos">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

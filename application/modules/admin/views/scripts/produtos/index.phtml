@@ -1,0 +1,41 @@
+<!-- Link Novo Produto -->
+<p><a href="<?php echo $this->url(array("controller" => "produtos", "action" => "add", "module" => "admin"), null, 1); ?>">Novo</a></p>
+
+<!-- Table Produtos -->
+<table>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>País</th>
+            <th>Tipo</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Imagem</th>
+            <th>Ativo</th>
+            <th width="8%">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($this->produtos as $produto): ?>
+            <tr>
+                <td><?php echo $this->escape($produto->getNome()); ?></td>
+                <td><?php echo $this->escape($produto->getPais_id()->getNome()); ?></td>
+                <td><?php echo $this->escape($produto->getTipo_id()->getNome()); ?></td>
+                <td><?php echo $this->escape($this->currency->toCurrency($produto->getPreco())); ?></td>
+                <td><?php echo $this->escape($produto->getEstoque()); ?></td>
+                <td><?php echo $this->escape($produto->hasImage()?"Sim":"Não"); ?></td>
+                <td><?php echo $this->escape($produto->getAtivo()?"Sim":"Não"); ?></td>
+                <td>
+                    <a href="<?php echo $this->url(array("controller" => "produtos", "action" => "edit", "module" => "admin", "id" => $produto->getId()), null, 1) ?>">
+                        <img src="<?php echo $this->baseUrl("/images/icons/edit.png"); ?>" alt="Editar"></a>
+                    &nbsp;
+                    <a href="<?php echo $this->url(array("controller" => "produtos", "action" => "delete", "module" => "admin", "id" => $produto->getId()), null, 1) ?>">
+                        <img src="<?php echo $this->baseUrl("/images/icons/delete.png"); ?>" alt="Deletar"></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+<!-- Paginator -->
+<?php echo $this->paginationControl($this->produtos,'Sliding','paginator.phtml'); ?>
