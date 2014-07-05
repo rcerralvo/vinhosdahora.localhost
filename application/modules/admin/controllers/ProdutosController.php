@@ -73,6 +73,15 @@ class Admin_ProdutosController extends Zend_Controller_Action
             }
         }
     }
+    
+    public function deleteAction() {
+        $produto = new Produto();
+        if ((int) $this->_getParam("id") > 0)
+            $produto->delete((int) $this->_getParam("id"));
+
+        $this->_helper->viewRenderer->setNoRender();
+        $this->_redirect("admin/produtos/");
+    }
 }
 
 

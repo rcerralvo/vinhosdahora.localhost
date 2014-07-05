@@ -13,6 +13,12 @@
                     <action>add</action>
                     <module>admin</module>
                 </add>
+                <edit>
+                    <label>Editar</label>
+                    <controller>produtos</controller>
+                    <action>edit</action>
+                    <module>admin</module>
+                </edit>
             </pages> 
         </produtos>
         <paises>
