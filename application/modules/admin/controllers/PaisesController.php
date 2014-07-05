@@ -32,6 +32,13 @@ class Admin_PaisesController extends Zend_Controller_Action
             if ($form->isValid($data)) {
                 $pais = new Pais($data);
                 $pais->save();
+                
+                $file = $pais->getLastInsertId().".jpg";
+                $icone = $form->getElement('image');
+
+                $icone->addFilter('Rename', array('target' => 'images/icons/' . $file));
+                $icone->receive();
+  
                 $this->_redirect("admin/paises");
             }
         }
@@ -53,7 +60,14 @@ class Admin_PaisesController extends Zend_Controller_Action
             if ($form->isValid($data)) {
                 $pais = new Pais($data);
                 $pais->save();
-                $this->_redirect("admin/paises");
+               
+                $file = $pais->getId().".jpg";
+                $image = $form->getElement('image');
+               
+                $image->addFilter('Rename', array("target" => "images/icons/" . $file));
+                $image->receive();
+                
+                $this->_redirect("admin/paises/");
             }
         }
     }
@@ -62,7 +76,7 @@ class Admin_PaisesController extends Zend_Controller_Action
     {
         $pais = new Pais();
         if ((int) $this->_getParam("id") > 0)
-            $pais->delete ($this->_getParam ("id"));
+            $pais->delete((int) $this->_getParam ("id"));
         
         $this->_helper->viewRenderer->setNoRender();
         $this->_redirect("admin/paises");

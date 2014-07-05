@@ -16,7 +16,7 @@ input[type=hidden] {display: none;}
 .zend_form fieldset legend {font: bold 12px Verdana, Arial, sans-serif; color: #505b79;padding: 0px;}
 .zend_form dt{clear:both;float:left;padding: 0px;}
 .zend_form dt label {width:100px;text-align:right;}
-.zend_form dd{padding:0;float:left;width:250px;}
+.zend_form dd{padding: 5px;float:left;width:250px;}
 .zend_form p{padding:0;margin:0;}
 .zend_form input, .zend_form textarea{margin:0 0 2px 0;padding:0 0 0px;}
 .zend_form textarea {height: 100px;border: 1px solid #cfd1cb;width: 320px;}

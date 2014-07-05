@@ -25,5 +25,16 @@ class Pais extends VH_Db_DomainObjectAbstract
     public function getNomePaises() {
         return $this->getMapper()->getNomePaises();
     }
+    
+    public function delete($id) {
+        @unlink("images/icons/".$id.".jpg");
+        return $this->getMapper()->delete($id);
+    }
+    
+    public function hasImage() {
+        $path = "images/icons/".$this->getId().".jpg";
+        if (file_exists($path))
+            return true;
+    }
 }
 
