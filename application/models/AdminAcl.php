@@ -17,16 +17,21 @@ class AdminAcl extends Zend_Acl
        $this->addResource(new Zend_Acl_Resource("admin:index"));
         
        // Previlégios
+       
+       # Visitante
        $this->allow("visitante", "admin:auth", "index");
        
+       # Usuario
        $this->allow("usuario", "admin:auth", "logout");
        $this->deny("usuario", "admin:auth", "index");
+       $this->allow("auxiliar", "admin:index");
        
+       # Auxiliar
        $this->allow("auxiliar", "admin:tipos", array("index", "add", "edit", "delete"));
        $this->allow("auxiliar", "admin:paises", array("index", "add", "edit", "delete"));
        $this->allow("auxiliar", "admin:produtos", array("index", "add", "edit", "delete"));
-       $this->allow("auxiliar", "admin:index");
        
+       # Administrador
        $this->allow("administrador");
        $this->deny("administrador", "admin:auth", "index");
     }
