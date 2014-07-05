@@ -107,7 +107,7 @@ class Produto extends VH_Db_DomainObjectAbstract
     }
     
     public function hasImage() {
-        $path = "images/produtos".$this->getId().".jpg";
+        $path = "images/produtos/".$this->getId().".jpg";
         if (file_exists($path))
             return true;
     }

@@ -46,8 +46,36 @@ class Admin_ProdutosController extends Zend_Controller_Action
         }
     }
 
+    public function editAction()
+    {
+        // action body
+        $produto = new Produto();
+        $rproduto = $produto->getAsArray((int) $this->_getParam("id", 1));
+        
+        $form = new VH_Forms_Produtos();
+        $form->addElement(new Zend_Form_Element_Hidden("id", $rproduto['id']));
+        $form->populate($rproduto);
+        $this->view->form = $form;
+        
+        if ($this->_request->isPost()) {
+            $data = $this->_request->getPost();
+            if ($form->isValid($data)) {
+                $produto = new Produto($data);
+                $produto->save();
 
+                $file = $produto->getId().".jpg";
+                $image = $form->getElement('image');
+
+                $image->addFilter('Rename', array('target' => 'images/produtos/' . $file));
+                $image->receive();
+
+                $this->_redirect("admin/produtos/");
+            }
+        }
+    }
 }
+
+
 
 
 
