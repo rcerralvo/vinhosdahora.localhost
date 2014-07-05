@@ -32,5 +32,15 @@ class PaisMapper extends VH_Db_DataMapperAbstract
             return false;
         }
     }
+    
+    public function getNomePaises() {
+        $db = $this->getDb();
+        $query = $db->select();
+        $query->from('pais', array('id', 'nome'))
+                ->order('nome asc');
+        
+        $data = $db->fetchPairs($query);
+        return $data;
+    }
 }
 

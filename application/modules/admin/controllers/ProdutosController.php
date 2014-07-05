@@ -20,5 +20,34 @@ class Admin_ProdutosController extends Zend_Controller_Action
         $this->view->produtos = $paginator;
         $this->view->currency = Zend_Registry::get('currency');
     }
+
+    public function addAction()
+    {
+        // action body
+        $form = new VH_Forms_Produtos();
+        $this->view->form = $form;
+        
+        if ($this->_request->isPost())
+        {
+            $data = $this->_request->getPost();
+            if ($form->isValid($data))
+            {
+                $produto = new Produto($data);
+                $produto->save();
+                
+                $file = $produto->getLastInsertId().".jpg";
+                $image = $form->getElement('image');
+                
+                $image->addFilter("Rename", array("target" => "images/produtos/" . $file));
+                $image->receive();
+                
+                $this->_redirect("admin/produtos");
+            }
+        }
+    }
+
+
 }
+
+
 

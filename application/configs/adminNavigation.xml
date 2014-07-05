@@ -5,7 +5,15 @@
             <label>Produtos</label>
             <controller>produtos</controller>
             <action>index</action>
-            <module>admin</module> 
+            <module>admin</module>
+            <pages>
+                <add>
+                    <label>Novo</label>
+                    <controller>produtos</controller>
+                    <action>add</action>
+                    <module>admin</module>
+                </add>
+            </pages> 
         </produtos>
         <paises>
             <label>Países</label>

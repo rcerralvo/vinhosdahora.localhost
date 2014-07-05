@@ -32,5 +32,15 @@ class TipoMapper extends VH_Db_DataMapperAbstract
             return false;
         }
     }
+    
+    public function getNomeTipos() {
+        $db = $this->getDb();
+        $query = $db->select();
+        $query->from('tipo', array('id', 'nome'))
+                ->order('nome asc');
+        
+        $data = $db->fetchPairs($query);
+        return $data;
+    }
 }
 
