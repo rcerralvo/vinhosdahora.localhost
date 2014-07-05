@@ -102,7 +102,7 @@ class Produto extends VH_Db_DomainObjectAbstract
     }
     
     public function delete($id) {
-        @unlink("images/produtos".$id.".jpg");
+        @unlink("images/produtos/".$id.".jpg");
         return $this->getMapper()->delete($id);
     }
     
