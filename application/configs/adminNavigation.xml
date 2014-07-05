@@ -6,6 +6,8 @@
             <controller>produtos</controller>
             <action>index</action>
             <module>admin</module>
+            <resource>admin:produtos</resource>
+            <privilege>index</privilege>
             <pages>
                 <add>
                     <label>Novo</label>
@@ -26,6 +28,8 @@
             <controller>paises</controller>
             <action>index</action>
             <module>admin</module>
+            <resource>admin:paises</resource>
+            <privilege>index</privilege>
             <pages>
                 <add>
                     <label>Novo</label>
@@ -46,6 +50,8 @@
             <controller>tipos</controller>
             <action>index</action>
             <module>admin</module>
+            <resource>admin:tipos</resource>
+            <privilege>index</privilege>
             <pages>
                 <add>
                     <label>Novo</label>
@@ -66,6 +72,8 @@
             <controller>auth</controller>
             <action>logout</action>
             <module>admin</module>
+            <resource>admin:auth</resource>
+            <privilege>logout</privilege>
         </sair>
     </nav>
 </config>

@@ -70,7 +70,7 @@ class Admin_AuthController extends Zend_Controller_Action
         $authAdapter->setTableName("funcionario")
                 ->setIdentityColumn("login")
                 ->setCredentialColumn("senha")
-                ->setCredentialTreatment('role <> "" and role == "dadad"');
+                ->setCredentialTreatment('role <> "" and role <> "usuario"');
         return $authAdapter;
     }
 }
