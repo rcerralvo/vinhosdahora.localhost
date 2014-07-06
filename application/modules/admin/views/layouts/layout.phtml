@@ -1,21 +1,20 @@
-<!-- Doctype -->
-<?php echo $this->doctype() . PHP_EOL ?>
+<?php echo $this->doctype() ?>
+
 <html>
-    <head> 
-        <!-- Titulo da Página -->
-        <?php echo $this->headTitle() . PHP_EOL; ?>
-        <!-- Meta -->
-        <?php echo $this->headMeta() . PHP_EOL; ?>
-        <!-- Css -->
+    <head>
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headMeta(); ?>
+
         <?php
         echo $this->headLink()
                 ->prependStylesheet($this->baseUrl() . '/styles/style.css')
-                ->prependStylesheet($this->baseUrl() . '/styles/form.css') . PHP_EOL;
+                ->prependStylesheet($this->baseUrl() . '/styles/form.css');
         ?>
-        <!-- jQuery -->
-        <script type="text/javascript" src="/scripts/jquery-min.js"></script>
+
+        <?php echo $this->headScript()->appendFile($this->baseUrl('/scripts/jquery-min.js'));
+        echo $this->jQuery()->uiEnable();?>
     </head>
-    
+
     <body>
 
         <div id="barrinha"></div>
@@ -23,12 +22,12 @@
 
 
             <div id="topo">
-                <h1>Vinhos Da Hora</h1>
-                <h2>Sistema Administrativo</h2>
+                <h1>ZfShop</h1>
+                <h2>Sistemas administrativo</h2>
             </div>
 
             <div class="clearfix"></div>
-            <!-- Menu Horizontal -->
+
             <div id="menu-horizontal">
                 <?php echo $this->navigation()
                         ->menu()
@@ -46,14 +45,13 @@
                                 ->breadcrumbs()
                                 ->setMinDepth(0)
                                 ->setMaxDepth(2)
-                                ->setSeparator(" : ").PHP_EOL;
+                                ->setSeparator(" : ");
                         ?>
                     </h3>
                 </div>
-                
-                <!-- Conteúdo das Páginas-->
-                <?php echo $this->layout()->content; ?>
 
+                <?php echo $this->layout()->content; ?>
+                
                 <div class="clearfix"></div>
             </div>
 
@@ -61,6 +59,6 @@
 
         </div>
         <div id="footer">
-            <p>Vinhos Da Hora - Todos os direitos reservados</p></div>
+            <p>ZFShop - Todos os direitos reservados</p></div>
     </body>
 </html>

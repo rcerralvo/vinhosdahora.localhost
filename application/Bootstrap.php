@@ -9,6 +9,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->doctype("HTML5");
         Zend_Registry::set('view', $view);
         
+        $view->addHelperPath("ZendX/JQuery/View/Helper","ZendX_JQuery_View_Helper");
+        
         $currency = new Zend_Currency("pt_BR");
         $currency->setFormat(array('symbol' => "R$ "));
         Zend_Registry::set("currency", $currency);
@@ -32,7 +34,5 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         
         $front->registerPlugin(new VH_Plugins_Layout());
     }
-
-
 }
 
