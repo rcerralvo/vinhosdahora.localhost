@@ -24,7 +24,7 @@ class AdminAcl extends Zend_Acl
        # Usuario
        $this->allow("usuario", "admin:auth", "logout");
        $this->deny("usuario", "admin:auth", "index");
-       $this->allow("auxiliar", "admin:index");
+       $this->allow("usuario", "admin:index");
        
        # Auxiliar
        $this->allow("auxiliar", "admin:tipos", array("index", "add", "edit", "delete"));
