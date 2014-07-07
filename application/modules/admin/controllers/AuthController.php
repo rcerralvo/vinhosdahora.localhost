@@ -55,7 +55,7 @@ class Admin_AuthController extends Zend_Controller_Action
         $this->_redirect("admin/auth");
     }
 
-        private function getAuthAdapter()
+    private function getAuthAdapter()
     {
         $bootstrap = $this->getInvokeArg("bootstrap");
         $resource = $bootstrap->getPluginResource("db");
@@ -66,7 +66,7 @@ class Admin_AuthController extends Zend_Controller_Action
         $authAdapter->setTableName("funcionario")
                 ->setIdentityColumn("login")
                 ->setCredentialColumn("senha")
-                ->setCredentialTreatment('role <> "" and role <> "usuario"');
+                ->setCredentialTreatment('SHA1(?) and role <> "" and role <> "usuario"');
         return $authAdapter;
     }
 }
