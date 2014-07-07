@@ -43,10 +43,6 @@ class Admin_AuthController extends Zend_Controller_Action
                     $this->view->messages = $e->getMessage();
                 }
             }
-            else
-            {
-                $form->populate($data);
-            }
         }
     }
     
