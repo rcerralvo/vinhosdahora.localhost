@@ -1,0 +1,374 @@
+body {
+    background: #FFF; /*inser��o da imagem de fundo em todo o site*/
+    color:#2a2d30; /*cor padr�o para todas as fontes*/
+    font-family: "Open Sans", Helvetica, sans-serif, arial; /*defini��o da fonte geral incorporada do Google Fonts*/
+    font-size: 18px; /*tamanho da fonte*/
+    font-weight: 300; /*indica que a fonte est� coonfigurada como Open Sans Light*/
+    line-height: 22px;/*altura da linha*/
+    text-align: left; /*alinhando o texto � esquerda*/
+    text-shadow: 0px; /*sombreamento para as fontes do site*/
+    cursor: default;
+}
+
+/*.clearfix usado para adicionar um espa�o vazio antes e depois dos elementos
+  evitando que os floats se aglomerem.
+*/
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
+}
+
+/*fim do clearfix*/
+img, picture, video, embed {
+    max-width: 100%;
+}
+
+a, a:link, a:visited{
+    font-weight:400; /*modifica a for�a da fonte para semi-bold*/
+    text-decoration:none; /*retira o sublinhado dos links*/
+}
+a:hover{
+    text-decoration:underline; /*inseri uma linha sob o link*/
+    text-shadow:none; /*retira a sombra da fonte*/
+}
+
+h3{
+    color:  #d80041;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: -1px; /*espa�amento entre as letras*/
+    line-height: 0px;
+}
+
+h2{
+    color: #828282;
+    font-size: 23px;
+    font-weight: 400;
+    letter-spacing: 1px; /*espa�amento entre as letras*/
+    cursor: default;
+}
+/*Inicio header*/
+header {
+    margin-top: -38px;
+    margin-left: -8px;
+    padding-right: 16px;
+    height:200px;
+    width: 100%;
+
+    border-bottom: 1px solid #d4d4d4;
+    background:url('http://vinhosdahora.localhost/images/pattern.png') repeat right;
+}
+
+header h1 a{ /*Logotipo*/
+    margin-left: 11%;
+    background:url("http://vinhosdahora.localhost/images/logo00.png") no-repeat;
+    display:block; /*torna o link como um bloco, um ret�ngulo*/
+    float:left; /*posiciona o logotipo � esquerda do site*/
+    height:138px; /*altura da imagem*/
+    text-indent:-9999; /*recuo para ocultar texto � esquerda*/
+    width:934px; /*largura da imagem*/
+}
+/*Fim header*/
+nav {
+    width: 100%;
+    height: 60px;
+    float:left;
+    padding-right: 7px;
+    margin-left: -7px;
+}
+
+/*Inicio Barra Navega��o*/
+nav ul {
+    list-style:none;
+}
+
+nav ul li { display: inline; }
+
+nav ul li:first-child {
+    margin-left: 25%;
+}
+
+nav ul li a {
+    padding: 0px 15px 0px 15px;
+    margin-right: 10px;
+    color: #000;
+    text-shadow: none;
+}
+
+nav li li h2 {
+    margin-left: 5px;
+}
+
+nav ul li a:hover {
+    color: #d80041;
+    text-decoration: none;
+}
+
+nav ul li:hover .show { /*Inicio Carrinho*/
+    background-color: white;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.show  span{
+    background: url('http://vinhosdahora.localhost/images/carrinho-32.png') no-repeat;
+    display:block; /*torna o link como um bloco, um ret�ngulo*/
+    text-indent:-9999; /*recuo para ocultar texto � esquerda*/
+    width:32px; /*largura da imagem*/
+    height:40px; /*altura da imagem*/
+    margin: 5px 0 0 8px;
+}
+
+.show a {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 45px;
+    color:  #000;
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 300;
+    letter-spacing: 1px; /*espa�amento entre as letras*/
+    line-height: 0px;
+    padding: 0px;
+}
+
+.show p {
+    position: absolute;
+    margin-top: -23px;
+    margin-left: 60px;
+    cursor: default;
+}
+
+.show a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+.show {
+    width: 140px;
+    height: 59px;
+    float: right;
+    margin-right: 2%;
+    margin-top: -15px;
+} /*Fim Carrinho*/
+
+.f-nav { /*Barra Fixa*/
+    background:url('http://vinhosdahora.localhost/images/pattern.png') repeat right;
+    background-color: white;
+    border-bottom: 1px solid #d4d4d4;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    float: right;
+}
+
+.busca {
+    position: absolute;
+    margin-top: -25px;
+    margin-left: 65%;
+    background-color:#000;/*#d4d4d4;*/
+
+    border-top-right-radius: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 3px;
+}
+
+#btnBusca {
+    height: 25px;
+    width: 25px;
+    background-image: url("http://vinhosdahora.localhost/images/search.png");
+    background-color:#000;/*#d4d4d4;*/
+    border: none;
+    float: left;
+    margin-top: 1px;
+}
+
+.busca input[type=text]{
+    border: 1px solid #000;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    background-color: white;
+    height: 25px;
+    width : 170px;
+    color: gray; /* Cor da fonte */
+    outline:none; /* Retira borda azul da caixa de texto */
+    font-size:18px;
+    float: left;
+    padding-left: 5px;
+
+}
+/*Fim Barra Navega��o*/
+
+/*Inicio Container*/
+.container {
+    width: 1060px;
+    margin: 0 auto;
+    margin-top: 0;
+    border-top: 0;
+}
+
+#filtro { /*Inicio Filtro*/
+    margin-top: 90px;
+    width: 210px;
+    border-right: 1px solid #d4d4d4;
+    border-bottom: 1px solid #d4d4d4;
+    border-top: 1px solid #d4d4d4;
+}
+
+#filtro ul,
+#filtro li,
+#filtro a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+    line-height: 1;
+    font-size: 14px;
+    position: relative;
+
+}
+
+#filtro > ul > li:first-child {
+    border: none;
+    text-align:center;
+}
+#filtro > ul > li {
+    background: white;
+    font-size: 14px;
+    display: block;
+    color: #000;
+    border-top: none;
+
+}
+
+/*  --Bugado!!
+#filtro > ul > li > a {
+  font-size: 14px;
+  display: block;
+  color: #000;
+  border-top: none;
+}
+*/
+
+#filtro > ul > li  > span {
+    display: block;
+    padding: 5px 5px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+#filtro > ul > li > a:hover {
+    text-decoration: none;
+}
+#filtro > ul > li.active {
+    border-bottom: none;
+}
+
+/*         --Bugado!!
+#filtro > ul > li.has-sub > a span {
+  background: url(images/icon_plus_test.png) 96% center no-repeat;
+}
+#filtro > ul > li.has-sub.active > a span {
+  background: url(images/icon_minus_test.png) 96% center no-repeat;
+}
+*/
+
+/* Sub menu */
+#filtro ul ul {
+    background: #000;
+}
+#filtro ul ul li {
+    padding: 0;
+    border-bottom: 1px solid #d4d4d4;
+    border-top: none;
+    background: #FFF;
+}
+#filtro ul ul li:last-child {
+    border-bottom: 1px solid #d4d4d4;
+}
+#filtro ul ul a {
+    padding: 10px 10px 10px 25px;
+    display: block;
+    color: #676767;
+    font-size: 12px;
+    font-weight: normal;
+}
+#filtro ul ul a:before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    color: #000;
+}
+#filtro ul ul a:hover {
+    color: #e94f31;
+} /*Fim Filtro*/
+
+/*Inicio Produtos*/
+
+#produtos ul,
+#produtos li,
+#produtos a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    text-decoration: none;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.box {	/*Boxes*/
+    width: 220px;
+    height: 360px;
+    border: 1px solid #d4d4d4;
+}
+
+.box p,
+.box h5 {
+    margin-left: 5px;
+    font-family: arial;
+}
+
+img {
+    margin-left: 10px;
+    width:200px;
+    height: auto;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/*Fim Produtos*/
+
+/*Fim Container*/
+
+/*Footer*/
+footer {
+    margin-top: 50px;
+    border-top: 1px solid #d4d4d4;
+    background:url('http://vinhosdahora.localhost/images/pattern.png') repeat right;
+
+    margin-left:-5px;
+    margin-right:-8px;
+    padding-top:15px;
+
+    text-align: right;
+}
+
+.desenvolvedor a {
+    color:#d80041;
+}
+
+small p {
+    display:inline;
+    padding: 0px 40px 0px 50px;
+}
