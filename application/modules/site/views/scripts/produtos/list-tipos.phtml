@@ -1,5 +1,4 @@
-<h3>Home</h3>
-
+<h3><?php echo $this->escape($this->tipo->getNome()); ?></h3>
 <div id="list-products">
     <?php foreach ($this->produtos as $produto): ?>
         <dl>

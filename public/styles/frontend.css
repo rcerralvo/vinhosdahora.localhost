@@ -19,7 +19,7 @@
 #categorias ul li a:hover {text-decoration: underline}
 
 #conteudo    {float: left; width: 730px; background: #FFF;padding: 0px 15px 10px 15px; }
-#conteudo h3 {font-size: 16px; color:green}
+#conteudo h3 {font-size: 16px; color:green;}
 
 #list-products {margin-top: 15px;  }
 #list-products dl {float: left; width: 200px; margin: 0 40px 50px 0;}
@@ -34,7 +34,7 @@
 #product-view {margin-top: 10px; }
 #product-image {float:left; padding: 10px;}
 #product-image {margin-right: 20px; }
-#produtct-description {width: 70%;float:left;margin-bottom: 10px}
+#product-description {width: 70%;margin: 10px 0 10px 0;}
 
 
 #paginator a {font-size: 11px; text-decoration: none; color: black; letter-spacing: 2px; text-align: center;margin-top: 10px;}

@@ -12,7 +12,7 @@ class VH_Plugins_Paises extends Zend_Controller_Plugin_Abstract {
 
         $content = "<ul>";
         foreach ($paises as $p)
-            $content .= "<li><a href=#><span>" . $view->escape($p->getNome()) . "</span></a></li>";
+            $content .= "<li><a href='" . $view->url(array('controller' => 'produtos', 'action' => 'list-paises', 'module' => 'site', 'pais_id' => $p->getId(), 'pais' => $p->getNome()), false, 1) . "'><span>" . $view->escape($p->getNome()) . "</span></a></li>";
 
         $content .= "</ul>";
 

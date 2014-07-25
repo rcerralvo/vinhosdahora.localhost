@@ -13,7 +13,7 @@ class VH_Plugins_CheckAcl extends Zend_Controller_Plugin_Abstract {
         $resource = $request->getControllerName();
         $action = $request->getActionName();
 
-        if ($module <> "default") {
+        if ($module <> "site") {
             if (!$this->_acl->isAllowed(Zend_Registry::get('role'), $module . ':' . $resource, $action)) {
                 $request->setModuleName('admin')
                         ->setControllerName('auth')

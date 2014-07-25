@@ -15,7 +15,7 @@ ul {margin: 0; padding: 0}
 
 img {border:none;}
 hr {display: none;}
-.clearfix {clear: both}
+.clearfix {clear: both;}
 
 #barrinha {background: #c0d9a6; height: 5px; width: 100%;}
 
@@ -42,6 +42,6 @@ hr {display: none;}
 #paginator a {font-weight: bold;}
 
 #footer {margin-top: 10px;}
-#footer p {text-align: center; color: red;}
+#footer p {text-align: center;}
 
 

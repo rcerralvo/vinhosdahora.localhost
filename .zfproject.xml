@@ -99,7 +99,14 @@
         </moduleDirectory>
         <moduleDirectory moduleName="site">
           <configsDirectory enabled="false"/>
-          <controllersDirectory/>
+          <controllersDirectory>
+            <controllerFile controllerName="Produtos">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="view"/>
+              <actionMethod actionName="listTipos"/>
+              <actionMethod actionName="listPaises"/>
+            </controllerFile>
+          </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory>
@@ -107,7 +114,20 @@
           </modelsDirectory>
           <servicesDirectory enabled="false"/>
           <viewsDirectory>
-            <viewScriptsDirectory/>
+            <viewScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Produtos">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Produtos">
+                <viewScriptFile forActionName="view"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Produtos">
+                <viewScriptFile forActionName="listTipos"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Produtos">
+                <viewScriptFile forActionName="listPaises"/>
+              </viewControllerScriptsDirectory>
+            </viewScriptsDirectory>
             <viewHelpersDirectory/>
             <viewFiltersDirectory/>
           </viewsDirectory>

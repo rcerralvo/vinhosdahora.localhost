@@ -1,0 +1,23 @@
+<h3><?php echo $this->escape($this->produto->getNome()); ?></h3>
+<div id="product-view">
+    <div id="product-image">
+        <?php if ($this->produto->hasImage()): ?>
+            <img width="200" height="200" src="<?php echo $this->baseUrl("/images/produtos/" . $this->produto->getId() . ".jpg") ?>" alt="<?php echo $this->escape($this->produto->getNome()); ?>">
+        <?php endif; ?>
+    </div>
+
+    <div id="product-description">
+        <?php echo $this->produto->getDescricao(); ?>
+
+    </div>
+    
+  <div class="content-line clearfix"></div>
+    
+    <div class="valor">
+        Somente por: <?php echo $this->escape(Zend_Registry::get('currency')->toCurrency($this->produto->getPreco())) ?>
+    </div>
+    
+    <div class="carrinho">
+        <a href="<?php echo $this->url(array('controller' => 'carrinho', 'action' => 'add', 'module' => 'site', 'produto_id' => $this->escape($this->produto->getId())), null, 1); ?>">Adicionar ao carrinho</a>
+    </div>
+</div>

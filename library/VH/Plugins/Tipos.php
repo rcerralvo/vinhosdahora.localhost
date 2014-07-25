@@ -12,7 +12,7 @@ class VH_Plugins_Tipos extends Zend_Controller_Plugin_Abstract
         
         $content = "<ul>";
         foreach ($tipos as $t)
-            $content .= "<li><a href=#><span>". $view->escape($t->getNome()). "</span></a></li>";
+            $content .= "<li><a href='" . $view->url(array('controller' => 'produtos', 'action' => 'list-tipos', 'module' => 'site', 'tipo_id' => $t->getId(), 'tipo' => $t->getNome()), false, 1) . "'><span>". $view->escape($t->getNome()). "</span></a></li>";
         
         $content .= "</ul>";
         

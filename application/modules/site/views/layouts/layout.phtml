@@ -1,129 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="PtBr" xml:lang="en">
+<?php echo $this->doctype(); ?>
+
+<html>
     <head>
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="/styles/site/style.css"/>
-        <link rel="stylesheet" type="text/css" href="/styles/site/menu-carrinho.css"/>
-        <link rel="stylesheet" type="text/css" href="/styles/site/boxes.css"/>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css' />
-        <!-- Javascript -->
-        <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-        <!--<script type='text/javascript' src='/scripts/filtro_jquery.js'></script>-->
-        <script type='text/javascript' src='/scripts/menu_jquery.js'></script>
-        <!-- Meta -->
         <?php echo $this->headMeta(); ?>
-        <meta name="viewport" content="width-divice-width, initial-scale=1.0" />
-        <!-- Titulo -->
-        <?php echo $this->headTitle() . PHP_EOL; ?>
+        <?php echo $this->headTitle(); ?>
+
+        <?php
+        echo $this->headLink()
+                ->prependStylesheet($this->baseUrl() . '/styles/style.css')
+                ->prependStylesheet($this->baseUrl() . '/styles/frontend.css')
+                ->prependStylesheet($this->baseUrl() . '/styles/form.css')
+        ?>
+
     </head>
-    
-    <body class="center clearfix">
-        <!-- Cabeçalho -->
-		<header>
-			<div class="col-full">
-				
-				<h1><a href="#" title="Vinhos da Hora"><span></span></a></h1>
-				
-				
-				<nav>
-					<ul>
-						<li><a href='#' class="first">Produtos</a></li>
-						<li><a href='#'>Dicas</a></li>
-						<li><a href='#'>Quem somos</a></li>
-						<li><a href='#'>Fale Conosco</a></li>
-						<li>
-							<div class="busca">
-								<form> 
-									<input type="text" name="busca"/>
-									<button id="btnBusca" />
-								</form>
-							</div>
-						</li>
-						<!-- Carrinho de compras -->
-						<li><div class="show"><span></span>
-							<a href="#">meu carrinho</a>
-							<p>0 Item</p>
-						</div>
-							<ul>
-								<li><h2>O carrinho está vazio</h2></li>
-							</ul>
-						</li><!-- fim Carrinho -->
-					</ul>
-				</nav> <!-- fim nav -->
-			
-			</div> <!-- fim .col-full -->
-		</header> <!-- fim header -->
-		<!--/Cabeçalho -->
-                
-		<section class="container">
-			<div id="filtro">
-				<ul>
-					<li><span><h2>Categorias</h2></span></li>
-					<li class='has-sub active'><span><h3>Tipos de Vinho</h3></span>
-						<!-- Tipos -->
-                                                <?php echo $this->placeholder('tipos'); ?>
-					</li>
-					<li class='has-sub active'><span><h3>País</h3></span>
-						<!-- Paises -->
-                                                <?php echo $this->placeholder('paises'); ?>
-					</li>
-					<li class='has-sub active'><span><h3>Preços</h3></span>
-						<ul>
-							<li><a href='#'><span>Vinho 1</span></a></li>
-							<li><a href='#'><span>Vinho 2</span></a></li>
-							<li class='last'><a href='#'><span>Vinho 3</span></a></li>
-						</ul>
-					</li>
-				</ul>
-			</div> <!-- fim #filtro -->
-                        <!-- Content -->
-			<div id="produtos">
-				<ul>
-					<li>
-						<div id="box1" class="box">
-							<img src="/images/vinhoteste.jpg" />
-							<p>Produttori del Barbaresco 2007 | WS 92</p>
-							<h5>R$ 204</h5>
-						</div>
-					</li>
-					<li>
-						<div id="box2" class="box">
-						
-						</div>
-					</li>
-					<li>
-						<div id="box3" class="box">
-						
-						</div>
-					</li>
-					<li>
-						<div id="box4" class="box">
-						
-						</div>
-					</li>
-					<li>
-						<div id="box5" class="box">
-						
-						</div>
-					</li>
-					<li>
-						<div id="box6" class="box">
-						
-						</div>
-					</li>
-				</ul>
-			</div> <!-- fim produtos -->
-		</section> <!-- fim .container -->
-                
-                <!-- Rodapé -->
-		<footer>
-			<small class="copyright">
-				<p>Copyright © 2014 - Todos os Direitos Reservados ao Vinhos da Hora</p>
-			</small><!-- fim .copyright -->
-			<small class="desenvolvedor">
-				<p>Desenvolvido pelo <a href="#">Grupo 2</a></p>
-				<p>Design criado por <a href="#">B&Ydesign</a></p>
-			</small><!-- fim .desenvolvedor -->
-		</footer><!-- fim footer -->
-	</body>
-</html> 
+
+    <body>
+
+        <div id="barrinha"></div>
+        <div id="estrutura">
+
+
+            <div id="topo">
+                <h1>Vinhos da Hora</h1>
+                <div id="menu-superior">
+                    <ul>
+                        <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, 1); ?>">Home</a></li>
+                        <li><a href="<?php echo $this->url(array('controller' => 'carrinho', 'action' => 'index'), null, 1); ?>">Carrinho de compras</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div id="barra">
+                <div>
+                    <?php echo $this->placeholder('welcome'); ?>
+                </div>
+            </div>
+            <div id="banner-principal">
+
+            </div>
+
+
+            <div id="categorias">
+                <h3>Tipos de Vinhos</h3>
+                <?php echo $this->placeholder('tipos'); ?>
+                <h3>Países</h3>
+                <?php echo $this->placeholder('paises'); ?>
+            </div>
+
+            <div id="conteudo">
+                <?php echo $this->layout()->content; ?>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+        <div id="footer">
+            <p>Vinhos Da Hora | &copy; Copyright 2014</p>
+        </div>
+    </body>
+</html>

@@ -1,10 +1,10 @@
 <?php
 
-class TipoMapper extends VH_Db_DataMapperAbstract
-{
+class TipoMapper extends VH_Db_DataMapperAbstract {
+
     protected $_dbTable = "DbTable_Tipo";
     protected $_model = "Tipo";
-    
+
     protected function _insert(\VH_Db_DomainObjectAbstract $obj) {
         try {
             $dbTable = $this->getDbTable();
@@ -32,15 +32,14 @@ class TipoMapper extends VH_Db_DataMapperAbstract
             return false;
         }
     }
-    
+
     public function getNomeTipos() {
         $db = $this->getDb();
         $query = $db->select();
         $query->from('tipo', array('id', 'nome'))
                 ->order('nome asc');
-        
+
         $data = $db->fetchPairs($query);
         return $data;
     }
 }
-

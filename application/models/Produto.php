@@ -94,11 +94,11 @@ class Produto extends VH_Db_DomainObjectAbstract
     }
     
     public function getByPaisId($id) {
-        return $this->getMapper()->getByPaisId();
+        return $this->getMapper()->getByPaisId($id);
     }
     
     public function getByTipoId($id) {
-        return $this->getMapper()->getByTipoId();
+        return $this->getMapper()->getByTipoId($id);
     }
     
     public function delete($id) {

@@ -16,6 +16,7 @@ class Site_Bootstrap extends Zend_Application_Module_Bootstrap {
         
         $front->registerPlugin(new VH_Plugins_Tipos());
         $front->registerPlugin(new VH_Plugins_Paises());
+        $front->registerPlugin(new VH_Plugins_Welcome());
     }
 
 }
