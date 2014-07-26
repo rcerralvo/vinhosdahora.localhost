@@ -22,6 +22,8 @@
           <dbTableFile dbTableName="Tipo"/>
           <dbTableFile dbTableName="Produto"/>
           <dbTableFile dbTableName="Cliente"/>
+          <dbTableFile dbTableName="Pedido"/>
+          <dbTableFile dbTableName="ItensPedido"/>
         </dbTableDirectory>
         <modelFile modelName="Tipo"/>
         <modelFile modelName="TipoMapper"/>
@@ -30,6 +32,10 @@
         <modelFile modelName="Carrinho"/>
         <modelFile modelName="Cliente"/>
         <modelFile modelName="ClienteMapper"/>
+        <modelFile modelName="Pedido"/>
+        <modelFile modelName="PedidoMapper"/>
+        <modelFile modelName="ItensPedido"/>
+        <modelFile modelName="ItensPedidoMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -115,6 +121,7 @@
             </controllerFile>
             <controllerFile controllerName="Checkout">
               <actionMethod actionName="index"/>
+              <actionMethod actionName="finish"/>
             </controllerFile>
             <controllerFile controllerName="Clientes">
               <actionMethod actionName="index"/>
@@ -158,6 +165,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Auth">
                 <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Checkout">
+                <viewScriptFile forActionName="finish"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

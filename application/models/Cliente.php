@@ -3,6 +3,7 @@
 class Cliente extends VH_Db_DomainObjectAbstract
 {
     protected $_mapper = "ClienteMapper";
+    private $empresa_id = null;
     private $Nome = null;
     private $Cpf = null;
     private $Rg = null;
@@ -18,6 +19,7 @@ class Cliente extends VH_Db_DomainObjectAbstract
     private $Cep = null;
     private $Login = null;
     private $Senha = null;
+    private $NoticiaEmail = null;
     private $role = null;
     
     public function getNome() {
@@ -148,6 +150,22 @@ class Cliente extends VH_Db_DomainObjectAbstract
         $this->role = $role;
     }
 
-    
+    public function getEmpresa_id() {
+        return $this->empresa_id;
+    }
+
+    public function getNoticiaEmail() {
+        return $this->NoticiaEmail;
+    }
+
+    public function setEmpresa_id($empresa_id) {
+        $this->empresa_id = $empresa_id;
+    }
+
+    public function setNoticiaEmail($NoticiaEmail) {
+        $this->NoticiaEmail = $NoticiaEmail;
+    }
+
+
 }
 
