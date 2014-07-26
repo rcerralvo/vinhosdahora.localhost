@@ -67,6 +67,22 @@
                 </edit>
             </pages>
         </tipos>
+        <pedidos>
+            <label>Pedidos</label>
+            <controller>pedidos</controller>
+            <action>index</action>
+            <module>admin</module>
+            <resource>admin:pedidos</resource>
+            <privilege>index</privilege>
+            <pages>
+                <view>
+                    <label>Visualizar</label>
+                    <controller>pedidos</controller>
+                    <action>view</action>
+                    <module>admin</module>
+                </view>
+            </pages>
+        </pedidos>
         <sair>
             <label>Sair</label>
             <controller>auth</controller>

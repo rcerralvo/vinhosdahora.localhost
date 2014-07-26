@@ -64,8 +64,6 @@ class Site_CheckoutController extends Zend_Controller_Action
                 
                 $moip = new PagamentoMoip();
                 $xml = $moip->generateXML($rcliente, $carrinho, $pedido_id, $data['frete']);
-                
-                Zend_Debug::dump($xml);
             }
         }
         

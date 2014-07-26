@@ -30,13 +30,13 @@ class PedidoMapper extends VH_Db_DataMapperAbstract {
         try {
             $valor = $carrinho->getTotal();
             $cliente_id = $cliente->getId();
-            
+
             $dataPedido = array('Valor' => $valor, 'cliente_id' => $cliente_id);
             $pedido = new Pedido($dataPedido);
             $pedido->save();
-            
+
             $pedido_id = $pedido->getLastInsertId();
-            
+
             $produtos_carrinho = $carrinho->fetchAll();
             foreach ($produtos_carrinho as $produto) {
                 $produto_id = $produto['produto']->getId();
@@ -51,11 +51,28 @@ class PedidoMapper extends VH_Db_DataMapperAbstract {
                 $itensPedido = new ItensPedido($dataItensPedido);
                 $itensPedido->save();
             }
-            
+
             $db->commit();
             return $pedido_id;
         } catch (Zend_Exception $e) {
             $db->rollBack();
         }
     }
+
+    public function fetchAll() {
+        $db = $this->getDb();
+        $query = $db->select();
+        $query->from('pedido');
+        $pedidos = $db->fetchAll($query);
+
+        $objArray = array();
+        $cliente = new Cliente();
+        foreach ($pedidos as $pedido) {
+            $pedido['cliente_id'] = $cliente->find($pedido['cliente_id']);
+            $objArray[] = $this->_populate($pedido);
+        }
+
+        return $objArray;
+    }
+
 }

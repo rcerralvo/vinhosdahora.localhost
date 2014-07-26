@@ -15,6 +15,7 @@ class AdminAcl extends Zend_Acl
        $this->addResource(new Zend_Acl_Resource("admin:paises"));
        $this->addResource(new Zend_Acl_Resource("admin:produtos"));
        $this->addResource(new Zend_Acl_Resource("admin:index"));
+       $this->addResource(new Zend_Acl_Resource("admin:pedidos"));
         
        // Previlégios
        
