@@ -110,6 +110,9 @@
             <controllerFile controllerName="Carrinho">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Checkout">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -132,6 +135,9 @@
                 <viewScriptFile forActionName="listPaises"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Carrinho">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Checkout">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
