@@ -26,6 +26,7 @@
         <modelFile modelName="TipoMapper"/>
         <modelFile modelName="Produto"/>
         <modelFile modelName="ProdutoMapper"/>
+        <modelFile modelName="Carrinho"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -106,6 +107,9 @@
               <actionMethod actionName="listTipos"/>
               <actionMethod actionName="listPaises"/>
             </controllerFile>
+            <controllerFile controllerName="Carrinho">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -126,6 +130,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Produtos">
                 <viewScriptFile forActionName="listPaises"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Carrinho">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
