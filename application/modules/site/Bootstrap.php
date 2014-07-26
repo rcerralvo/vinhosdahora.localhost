@@ -3,7 +3,10 @@
 class Site_Bootstrap extends Zend_Application_Module_Bootstrap {
 
     protected function _initSessions() {
-        
+        Zend_Session::setOptions(array(
+           'cookie_httponly' => true 
+        ));
+        Zend_Session::start();
     }
 
     protected function _initPlugins() {
