@@ -57,6 +57,7 @@ class Site_AuthController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $auth->setStorage(new Zend_Auth_Storage_Session("site"));
         $auth->clearIdentity();
+        Carrinho::getInstance()->clear();
         $this->_redirect("index");
     }
 
