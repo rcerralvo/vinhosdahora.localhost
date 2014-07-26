@@ -11,7 +11,7 @@ class VH_Plugins_Welcome extends Zend_Controller_Plugin_Abstract {
         $auth->setStorage(new Zend_Auth_Storage_Session('site'));
 
         if ($auth->hasIdentity()) {
-            $nome = $auth->getIdentity()->nome;
+            $nome = $auth->getIdentity()->Nome;
             $content = 'Seja bem-vindo, <b>' . $view->escape($nome) . '</b>';
             $content.= ' <i>(<a href="' . $view->url(array("controller" => "auth", "action" => "logout"), null, 1) . '">logout</a></i>)';
         } else {

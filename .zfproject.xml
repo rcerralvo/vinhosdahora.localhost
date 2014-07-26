@@ -21,12 +21,15 @@
           <dbTableFile dbTableName="Pais"/>
           <dbTableFile dbTableName="Tipo"/>
           <dbTableFile dbTableName="Produto"/>
+          <dbTableFile dbTableName="Cliente"/>
         </dbTableDirectory>
         <modelFile modelName="Tipo"/>
         <modelFile modelName="TipoMapper"/>
         <modelFile modelName="Produto"/>
         <modelFile modelName="ProdutoMapper"/>
         <modelFile modelName="Carrinho"/>
+        <modelFile modelName="Cliente"/>
+        <modelFile modelName="ClienteMapper"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
@@ -113,6 +116,13 @@
             <controllerFile controllerName="Checkout">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Clientes">
+              <actionMethod actionName="index"/>
+              <actionMethod actionName="add"/>
+            </controllerFile>
+            <controllerFile controllerName="Auth">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -138,6 +148,15 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Checkout">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Clientes">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Clientes">
+                <viewScriptFile forActionName="add"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Auth">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>

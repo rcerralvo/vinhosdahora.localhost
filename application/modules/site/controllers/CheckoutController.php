@@ -20,7 +20,7 @@ class Site_CheckoutController extends Zend_Controller_Action
             $this->view->formLogin = $formLogin;
             
             $formCliente = new VH_Forms_ClientesCadastro();
-            $formCliente->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . "/clientes");
+            $formCliente->setAction(Zend_Controller_Front::getInstance()->getBaseUrl() . "/clientes/add");
             $this->view->formCliente = $formCliente;
             
             $this->view->carrinho = $carrinho->fetchAll();
