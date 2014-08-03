@@ -1,0 +1,38 @@
+<h3>Detalhes do Pedido</h3>
+<div class="content-line"></div>
+<table>
+    <tbody>
+        <tr>
+            <td><strong>Pedido:</strong></td>
+            <td><?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getId()); ?></td>
+        </tr>
+        <tr>
+            <td><strong>Data e Hora:</strong></td>
+            <td><?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getDataHora()); ?></td>
+        </tr>
+        <tr>
+            <td><strong>Valor R$:</strong></td>
+            <td><?php echo Zend_Registry::get('currency')->toCurrency($this->itensPedidos[0]->getPedido_id()->getValor()); ?></td>
+        </tr>
+        <tr>
+            <td><strong>Produtos:</strong></td>
+            <td>
+                <?php 
+                foreach ($this->itensPedidos as $itemPedido) {
+                    echo $itemPedido->getQuantidade()." - ".$itemPedido->getProduto_id()->getNome()." - ".$itemPedido->getProduto_id()->getPreco()."<br><br>";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Tipo de Pagamento:</strong></td>
+            <td>Não Definido</td>
+        </tr>
+        <tr>
+            <td><strong>Status</strong></td>
+            <td>Não Definido</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<a href="/meus-pedidos">Voltar</a>

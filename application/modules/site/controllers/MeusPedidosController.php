@@ -24,6 +24,17 @@ class Site_MeusPedidosController extends Zend_Controller_Action
         $this->view->pedidos = $rpedidos;
     }
 
+    public function viewAction()
+    {
+        // action body
+        $itenspedido = new ItensPedido();
+        $ritenspedido = $itenspedido->find((int) $this->_getParam("id"));
+
+        $this->view->itensPedidos = $ritenspedido;
+    }
+
 
 }
+
+
 
