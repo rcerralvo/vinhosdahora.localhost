@@ -143,6 +143,9 @@
             <controllerFile controllerName="MeusDados">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="MeusPedidos">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -183,6 +186,9 @@
                 <viewScriptFile forActionName="finish"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="MeusDados">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="MeusPedidos">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>

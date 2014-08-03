@@ -92,4 +92,24 @@ class PedidoMapper extends VH_Db_DataMapperAbstract {
         }
     }
 
+    public function getByClienteId($id) {
+        $db = $this->getDb();
+        $query = $db->select();
+        $query->from('pedido')
+                ->where('cliente_id = '. (int) $id);
+        
+        $pedidos = $db->fetchAll($query);
+        
+        $objArray = array();
+        $clienteMapper = new ClienteMapper();
+        
+        foreach ($pedidos as $pedido) {
+            $cliente = $clienteMapper->find($pedido['cliente_id']);
+            $pedido['cliente_id'] = $cliente;
+            
+            $objArray[] = $this->_populate($pedido);
+        }
+        return $objArray;
+    }
+
 }

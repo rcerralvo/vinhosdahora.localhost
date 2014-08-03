@@ -34,5 +34,9 @@ class Pedido extends VH_Db_DomainObjectAbstract
     public function geraPedido(Cliente $cliente, Carrinho $carrinho) {
         return $this->getMapper()->geraPedido($cliente, $carrinho);
     }
+    
+    public function getByClienteId($id) {
+        return $this->getMapper()->getByClienteId($id);
+    }
 }
 
