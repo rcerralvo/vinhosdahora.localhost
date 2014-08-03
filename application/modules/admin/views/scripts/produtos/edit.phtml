@@ -5,22 +5,23 @@
 <?php echo $this->headScript()->appendFile($this->baseUrl('/scripts/ckeditor/adapters/jquery.js')); ?>
 <script type="text/javascript">
 
-$(function()
-{
-var config = {
-		toolbar:
-			[
-				['Source','-','Bold', 'Italic', '-', 'NumberedList', 'BulletedList','Outdent','Indent', '-','Image','-', 'Link', 'Unlink'],
-				['UIColor'],
-				['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
-			]
-
-};
+    $(function()
+    {
+        var config = {
+            toolbar:
+                    [
+                        ['Source', '-', 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList', 'Outdent', 'Indent', '-', 'Image', '-', 'Link', 'Unlink'],
+                        ['UIColor'],
+                        ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+                    ],
+            width: 800
+        };
 
 
 //Initialize the editor.
 //Callback function can be passed and executed after full instance creation.
-$('.jquery_ckeditor').ckeditor(config);});
+        $('.jquery_ckeditor').ckeditor(config);
+    });
 
 //CKEDITOR.replace( 'content-editor' );
 
