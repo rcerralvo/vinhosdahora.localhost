@@ -25,5 +25,31 @@ class Tipo extends VH_Db_DomainObjectAbstract
     public function getNomeTipos() {
         return $this->getMapper()->getNomeTipos();
     }
+    
+    public function save() {
+        $db = $this->getMapper()->getDb();
+        $query = $db->select();
+        $query->from('tipo')->where("Nome = '{$this->getNome()}'");
+        
+        $data = $db->fetchRow($query);
+        
+        if ($data)
+            throw new Exception('Esse tipo já existe');
+        
+        parent::save();
+    }
+    
+    public function delete($id) {
+        $db = $this->getMapper()->getDb();
+        $query = $db->select();
+        $query->from('produto')->where('tipo_id = ' . (int) $id);
+        
+        $data = $db->fetchRow($query);
+        
+        if ($data)
+            throw new Exception('Esse tipo não pode ser excluido, pois possui dependências');
+        
+        parent::delete($id);
+    }
 }
 

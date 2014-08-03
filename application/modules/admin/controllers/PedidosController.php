@@ -21,6 +21,22 @@ class Admin_PedidosController extends Zend_Controller_Action
         $this->view->pedidos = $paginator;
     }
 
+    public function viewAction()
+    {
+        // action body
+        $itenspedido = new ItensPedido();
+        $ritenspedido = $itenspedido->find((int) $this->_getParam("id"));
+        
+        foreach ($ritenspedido as $itemPedido) {
+            echo $itemPedido->getProduto_id()->getNome()."<br>";
+            echo $itemPedido->getQuantidade()."<br>";
+            echo $itemPedido->getProduto_id()->getTipo_id()->getId();
+        }
+    }
+    
+
 
 }
+
+
 

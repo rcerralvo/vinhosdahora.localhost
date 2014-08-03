@@ -24,5 +24,28 @@ class ItensPedidoMapper extends VH_Db_DataMapperAbstract {
     protected function _update(\VH_Db_DomainObjectAbstract $obj) {
         
     }
-
+    
+    public function find($id) {
+        $db = $this->getDb();
+        $query = $db->select();
+        $query->from('itenspedido')
+                ->where('pedido_id = '. (int) $id);
+        
+        $itensPedidos = $db->fetchAll($query);
+        
+        $objArray = array();
+        $pedidoMapper = new PedidoMapper();
+        $produtoMapper = new ProdutoMapper();
+        
+        foreach ($itensPedidos as $itemPedido) {
+            $pedido = $pedidoMapper->find($itemPedido['pedido_id']);
+            $itemPedido['pedido_id'] = $pedido;
+            
+            $produto = $produtoMapper->find($itemPedido['produto_id']);
+            $itemPedido['produto_id'] = $produto;
+            
+            $objArray[] = $this->_populate($itemPedido);
+        }
+        return $objArray;
+    }
 }

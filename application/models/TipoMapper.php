@@ -42,4 +42,5 @@ class TipoMapper extends VH_Db_DataMapperAbstract {
         $data = $db->fetchPairs($query);
         return $data;
     }
+    
 }

@@ -140,6 +140,9 @@
             <controllerFile controllerName="Auth">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="MeusDados">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -178,6 +181,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="Checkout">
                 <viewScriptFile forActionName="finish"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="MeusDados">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>

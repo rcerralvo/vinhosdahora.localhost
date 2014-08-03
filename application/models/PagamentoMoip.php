@@ -2,7 +2,7 @@
 
 class PagamentoMoip {
 
-    public function generateXML(Cliente $cliente, Carrinho $carrinho, $pedido_id, $frete='Sedex') {
+    public function generateXML(Cliente $cliente, Carrinho $carrinho, $pedido_id, $frete = 'Sedex') {
         $xml = new DomDocument('1.0', 'UTF-8');
 
         $instrucao = $xml->createElement('EnviarInstrucao', '');
@@ -72,12 +72,6 @@ class PagamentoMoip {
         $formpagto = $xml->createElement('FormaPagamento', 'BoletoBancario');
         $formaspagamento->appendChild($formpagto);
 
-        $formpagto = $xml->createElement('FormaPagamento', 'CarteiraMoIP');
-        $formaspagamento->appendChild($formpagto);
-
-        $formpagto = $xml->createElement('FormaPagamento', 'CartaoCredito');
-        $formaspagamento->appendChild($formpagto);
-
         $formpagto = $xml->createElement('FormaPagamento', 'DebitoBancario');
         $formaspagamento->appendChild($formpagto);
 
@@ -97,36 +91,39 @@ class PagamentoMoip {
             $mensagens->appendChild($mensagem);
         }
 
-        $entrega = $xml->createElement('Entrega', '');
-        $unica->appendChild($entrega);
-
-        $destino = $xml->createElement('Destino', 'MesmoCobranca');
-        $entrega->appendChild($destino);
-
-        // sedex10
-        $calculofrete = $xml->createElement('CalculoFrete', '');
-        $entrega->appendChild($calculofrete);
-
-        $tipo = $xml->createElement('Tipo', 'Correios');
-        $calculofrete->appendChild($tipo);
-
-        $prazo = $xml->createElement('Prazo', '1');
-        $calculofrete->appendChild($prazo);
-
-        $prazo_tipo = $xml->createAttribute("Tipo");
-        $prazo->appendChild($prazo_tipo);
-
-        $prazo_tipo_value = $xml->createTextNode("Uteis");
-        $prazo_tipo->appendChild($prazo_tipo_value);
-
-        $correios = $xml->createElement('Correios', '');
-        $calculofrete->appendChild($correios);
-
-        $peso = $xml->createElement('PesoTotal', $carrinho->getTotalPeso());
-        $correios->appendChild($peso);
-
-        $forma = $xml->createElement('FormaEntrega', $frete);
-        $correios->appendChild($forma);
+//        $entrega = $xml->createElement('Entrega', '');
+//        $unica->appendChild($entrega);
+//
+//        $destino = $xml->createElement('Destino', 'MesmoCobranca');
+//        $entrega->appendChild($destino);
+//
+//        // sedex10
+//        $calculofrete = $xml->createElement('CalculoFrete', '');
+//        $entrega->appendChild($calculofrete);
+//
+//        $tipo = $xml->createElement('Tipo', 'Correios');
+//        $calculofrete->appendChild($tipo);
+//        
+//        $valorFixo = $xml->createElement('ValorFixo', '1.20');
+//        $calculofrete->appendChild($valorFixo);
+//
+//        $prazo = $xml->createElement('Prazo', '5');
+//        $calculofrete->appendChild($prazo);
+//
+//        $prazo_tipo = $xml->createAttribute("Tipo");
+//        $prazo->appendChild($prazo_tipo);
+//
+//        $prazo_tipo_value = $xml->createTextNode("Corridos");
+//        $prazo_tipo->appendChild($prazo_tipo_value);
+//
+//        $correios = $xml->createElement('Correios', '');
+//        $calculofrete->appendChild($correios);
+//
+//        $peso = $xml->createElement('PesoTotal', $carrinho->getTotalPeso());
+//        $correios->appendChild($peso);
+//
+//        $forma = $xml->createElement('FormaEntrega', $frete);
+//        $correios->appendChild($forma);
 
 
         return $xml->saveXML();
@@ -137,7 +134,7 @@ class PagamentoMoip {
         $httpClient = new Zend_Http_Client('https://desenvolvedor.moip.com.br/sandbox/ws/alpha/EnviarInstrucao/Unica');
         $httpClient->setHeaders($header);
         $httpClient->setRawData($xml);
-        
+
         $responseMoIP = $httpClient->request('POST');
 
         $res = simplexml_load_string($responseMoIP->getBody());
@@ -151,17 +148,16 @@ class PagamentoMoip {
                     $status = $c;
             }
         }
-
+        
         if ($status == "Sucesso")
             return $moipToken;
-
         else
             return false;
     }
 
-   
     public function generateUrl($token) {
         $url = "https://desenvolvedor.moip.com.br/sandbox/Instrucao.do?token=" . $token;
         return $url;
     }
+
 }

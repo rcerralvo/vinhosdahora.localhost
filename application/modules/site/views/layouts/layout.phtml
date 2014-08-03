@@ -26,6 +26,17 @@
                     <ul>
                         <li><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'index'), null, 1); ?>">Home</a></li>
                         <li><a href="<?php echo $this->url(array('controller' => 'carrinho', 'action' => 'index'), null, 1); ?>">Carrinho de compras</a></li>
+                        <?php
+                        $auth = Zend_Auth::getInstance();
+                        $auth->setStorage(new Zend_Auth_Storage_Session('site'));
+                        
+                        if ($auth->hasIdentity()) {
+                            // link meus-dados
+                            echo "<li><a href=\"{$this->url(array('controller' => 'meus-dados', 'action' => 'index'), null, 1)}\">Meus Dados</a></li>";
+                            // link meus-pedidos
+                            echo "<li><a href=\"{$this->url(array('controller' => 'meus-pedidos', 'action' => 'index'), null, 1)}\">Meus Pedidos</a></li>";
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
