@@ -83,6 +83,22 @@
                 </view>
             </pages>
         </pedidos>
+        <relatorios>
+            <label>Relatórios</label>
+            <controller>relatorios</controller>
+            <action>index</action>
+            <module>admin</module>
+            <resource>admin:relatorios</resource>
+            <privilege>index</privilege>
+            <pages>
+                <produtos>
+                    <label>Produtos</label>
+                    <controller>relatorios</controller>
+                    <action>produtos</action>
+                    <module>admin</module>
+                </produtos>
+            </pages>
+        </relatorios>
         <sair>
             <label>Sair</label>
             <controller>auth</controller>
