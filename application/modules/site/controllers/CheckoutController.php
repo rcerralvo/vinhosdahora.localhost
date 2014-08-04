@@ -64,7 +64,7 @@ class Site_CheckoutController extends Zend_Controller_Action {
                 if ($token instanceof SimpleXMLElement){
                     $url = $moip->generateUrl((string) $token);
                     $carrinho = Carrinho::getInstance();
-                    //$carrinho->clear();
+                    $carrinho->clear();
                     $this->_redirect($url);
                 }
             }

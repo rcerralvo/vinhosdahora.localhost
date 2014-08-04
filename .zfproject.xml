@@ -147,6 +147,9 @@
               <actionMethod actionName="index"/>
               <actionMethod actionName="view"/>
             </controllerFile>
+            <controllerFile controllerName="RetornoMoip">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false"/>
@@ -194,6 +197,9 @@
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="MeusPedidos">
                 <viewScriptFile forActionName="view"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="RetornoMoip">
+                <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
             <viewHelpersDirectory/>
