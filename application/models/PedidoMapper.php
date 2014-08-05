@@ -21,7 +21,19 @@ class PedidoMapper extends VH_Db_DataMapperAbstract {
     }
 
     protected function _update(\VH_Db_DomainObjectAbstract $obj) {
-        
+        try {
+            $dbTable = $this->getDbTable();
+            $data = array(
+                'status_pagamento' => $obj->getStatus_pagamento(),
+                'cod_moip' => $obj->getCod_moip(),
+                'tipo_pagamento' => $obj->getTipo_pagamento()
+            );
+
+            $dbTable->update($data, array('id = ?' => $obj->getId()));
+            return true;
+        } catch (Zend_Exception $e) {
+            return false;
+        }
     }
 
     public function geraPedido(Cliente $cliente, Carrinho $carrinho) {

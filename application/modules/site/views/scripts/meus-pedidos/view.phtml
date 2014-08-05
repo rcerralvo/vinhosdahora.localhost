@@ -26,11 +26,32 @@
         </tr>
         <tr>
             <td><strong>Tipo de Pagamento:</strong></td>
-            <td>Não Definido</td>
+            <td>
+                <?php if ($this->itensPedidos[0]->getPedido_id()->getTipo_pagamento() == "BoletoBancario"
+                        && $this->itensPedidos[0]->getPedido_id()->getStatus_pagamento() != "Autorizado"
+                        && $this->itensPedidos[0]->getPedido_id()->getStatus_pagamento() != "Concluido"): ?>
+                    <?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getTipo_pagamento()); ?>
+                    &nbsp;
+                    <a href="">(imprimir 2º via)</a>
+                <?php elseif ($this->itensPedidos[0]->getPedido_id()->getTipo_pagamento() == "DebitoBancario"): ?>
+                    <?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getTipo_pagamento()); ?>
+                    &nbsp;
+                    <a href="">(imprimir 2º via recibo)</a>
+                <?php else: ?>
+                    <?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getTipo_pagamento()); ?>
+                <?php endif; ?>
+            </td>
         </tr>
         <tr>
             <td><strong>Status</strong></td>
-            <td>Não Definido</td>
+            <td>
+                <?php if ($this->itensPedidos[0]->getPedido_id()->getStatus_pagamento() == "Concluido"
+                        || $this->itensPedidos[0]->getPedido_id()->getStatus_pagamento() == "Autorizado"): ?>
+                    <img src="<?php echo $this->baseUrl('images/confirmado.png'); ?>"/>&nbsp;Confirmado
+                <?php else: ?>
+                    <?php echo $this->escape($this->itensPedidos[0]->getPedido_id()->getStatus_pagamento()); ?>
+                <?php endif; ?>
+            </td>
         </tr>
     </tbody>
 </table>

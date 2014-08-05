@@ -1,3 +1,9 @@
+<br />
+<strong>Total:&nbsp;</strong><?php echo $this->escape(Zend_Registry::get('currency')->toCurrency($this->total)); ?>
+&nbsp;|&nbsp;
+<strong>Total Confirmados:&nbsp;</strong><?php echo $this->escape(Zend_Registry::get('currency')->toCurrency($this->totalConfirmados)); ?>
+&nbsp;|&nbsp;
+<strong>Total Pendentes:&nbsp;</strong><?php echo $this->escape(Zend_Registry::get('currency')->toCurrency($this->totalPendentes)); ?>
 <table>
     <thead>
         <tr>
@@ -5,6 +11,8 @@
             <th>Data</th>
             <th>Cliente</th>
             <th>Valor</th>
+            <th>Status</th>
+            <th>Tipo de Pagamento</th>
             <th width="8%">Ação</th>
         </tr>
     </thead>
@@ -15,6 +23,15 @@
                 <td><?php echo $this->escape($pedido->getDataHora()) ?></td>
                 <td><?php echo $this->escape($pedido->getCliente_id()->getNome()) ?></td>
                 <td><?php echo Zend_Registry::get('currency')->toCurrency($this->escape($pedido->getValor())) ?></td>
+                <td align="center">
+                    <?php if ($pedido->getStatus_pagamento() == "Autorizado" || $pedido->getStatus_pagamento() == "Concluido" ): ?>
+                        <img src="<?php echo $this->baseUrl('images/confirmado.png'); ?>" />&nbsp;
+                        <font color="green"><strong><?php echo $this->escape($pedido->getStatus_pagamento()); ?></strong></font>
+                    <?php else: ?>
+                        <?php echo $this->escape($pedido->getStatus_pagamento()); ?>
+                    <?php endif; ?>
+                </td>
+                <td align="center"><?php echo $this->escape($pedido->getTipo_pagamento()); ?></td>
                 <td>
                     <a href="<?php echo $this->url(array('controller' => 'pedidos', 'action' => 'view', 'module' => 'admin', 'id' => $pedido->getId()), null, 1) ?>">
                         <img src="<?php echo $this->baseUrl("/images/icons/edit.png"); ?>" alt="Editar">

@@ -19,8 +19,15 @@
                     <td><?php echo $this->escape($pedido->getId()); ?></td>
                     <td><?php echo $this->escape($pedido->getDataHora()); ?></td>
                     <td><?php echo Zend_Registry::get('currency')->toCurrency($pedido->getValor()); ?></td>
-                    <td><?php echo 'Não Definido' ?></td>
-                    <td><?php echo 'Não Definido' ?></td>
+                    <td><?php echo $this->escape($pedido->getTipo_pagamento()); ?></td>
+                    <td>
+                        <?php if ($pedido->getStatus_pagamento() == "Concluido"
+                                || $pedido->getStatus_pagamento() == "Autorizado"): ?>
+                            <img src="<?php echo $this->baseUrl('images/confirmado.png'); ?>"/>&nbsp;Confirmado
+                        <?php else: ?>
+                            <?php echo $this->escape($pedido->getStatus_pagamento()); ?>
+                        <?php endif; ?>
+                    </td>
                     <td><a href="<?php echo $this->url(array('controller' => 'meus-pedidos', 'action' => 'view', 'module' => 'site', 'id' => $pedido->getId())); ?>">detalhes</a></td>
                 </tr>
             <?php endforeach; ?>
